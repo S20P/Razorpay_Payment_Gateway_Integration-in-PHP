@@ -1,0 +1,67 @@
+Razorpay Payment Gateway Integration in PHP
+
+https://razorpay.com/docs/payment-gateway/server-integration/php/
+
+
+   composer require razorpay/razorpay:2.*
+   
+    Log into your Dashboard with appropriate credentials.
+    https://dashboard.razorpay.com/#/access/signin
+
+
+
+    Transact in Test Mode
+    Key Id : rzp_test_dFkNprWDfzVPXb
+    Key Secret : g6ST5SCGLSgQSpp0LDbd7qmd
+
+
+  users table
+
+   CREATE TABLE `users` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `subscription_id` int(11) NOT NULL DEFAULT '0',
+    `first_name` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+    `last_name` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+    `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+    `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+    `gender` enum('Male','Female') COLLATE utf8_unicode_ci NOT NULL,
+    `phone` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+    `created` datetime NOT NULL,
+    `modified` datetime NOT NULL,
+    `status` enum('1','0') COLLATE utf8_unicode_ci NOT NULL DEFAULT '1',
+    PRIMARY KEY (`id`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+  plan table
+  
+  CREATE TABLE `package` (
+      `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'PRIMARY_KEY',
+      `plan_id` varchar(100) DEFAULT NULL,
+      `name` varchar(255) NOT NULL COMMENT 'package name',
+      `description` TEXT(50) DEFAULT NULL,
+      `amount` float(10,2) NOT NULL DEFAULT 0.00,
+      `currency` varchar(50) DEFAULT NULL,
+      `type` varchar(255) DEFAULT 'plan' COMMENT 'plan',
+      `status` int(1) NOT NULL DEFAULT 0 COMMENT '0=inactive, 1=active',
+      `created_at` datetime NOT NULL,
+      `updated_at` datetime NOT NULL,
+      PRIMARY KEY (`id`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+    subscription table
+
+ CREATE TABLE `subscription` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `user_id` int(11) NOT NULL DEFAULT '0',
+    `plan_id` varchar(100) DEFAULT NULL,
+    `subscription_id` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+    `current_start` datetime NOT NULL,
+    `current_end` datetime NOT NULL,
+    `quantityd` int(11) NOT NULL DEFAULT '1',
+   `currency` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+    `payer_email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+    `payment_status` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+    PRIMARY KEY (`id`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

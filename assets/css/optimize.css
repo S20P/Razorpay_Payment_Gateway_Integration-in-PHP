@@ -1,0 +1,40 @@
+body {
+    background-color: aliceblue;
+}
+
+.btn {
+    background: #3b5998;
+    border-radius: 3px;
+    font-weight: 600;
+    padding: 5px 10px;
+    display: inline-block;
+    position: static;
+    border-color: #4966a6;
+    color: #ffff;
+    font-size: 16px;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background: #213A6F
+}
+
+.col-lg-4{ padding: 0 !important;}
+.blocks{ border:1px solid #EEEEEE;}
+.blocks:hover{box-shadow:0px 0px 10px #D9E0DB;}
+.block-header{ height: auto; text-align: center; width: 100%; padding: 8%; background: #F8F8F8; color: #333333;}
+.block-container p:hover{background:#F8F8F8;}
+.block-header h4{ font-weight: bold; vertical-align: center;}
+.block-container{ text-align: center;}
+.block-container p{ border-bottom:1px solid #F4F7F8; margin: 0; padding: 2%; }
+.block-container p:last-child{ border-bottom:none;}
+.price{font-size: 50px; font-family: PT Serif; color: #FF592D; font-weight: bold;}
+.renew-price{font-size: 12px; color: #333333; font-style: italic; font-weight: normal;}
+.block-footer{text-align: center; padding: 10%;}
+.razorpay-payment-button{border: 1px solid #FF592D; padding: 15px; border-radius: 4%; color:#333333; font-weight: bold; }
+.razorpay-payment-button:hover{text-decoration: none; background: #FF592D; color: #fff;}
+.active-block { box-shadow:0px 0px 10px #D9E0DB;}
+.active-block .block-header{ background: #45BA76; color: #fff;}
+.active-block .price{ color:#45BA76;}
+.active-block .block-footer a{ background: #45BA76; color: #fff; border:none;}
+.active-block .block-footer a:hover{ background: #EEEEEE; color: #333333; border:1px solid #45BA76;}
